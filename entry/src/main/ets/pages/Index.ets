@@ -23,6 +23,9 @@ struct Index {
     new Card("/common/th11.png","侦察飞行器","xxx","***"),
     new Card("/common/th12.png","AA飞行器","xxx","***"),
     new Card("/common/th11.png","侦察飞行器","xxx","***"),
+    new Card("/common/th12.png","AA飞行器","xxx","***"),
+    new Card("/common/th12.png","AA飞行器","xxx","***"),
+    new Card("/common/th11.png","侦察飞行器","xxx","***"),
     new Card("/common/th12.png","AA飞行器","xxx","***")
 
   ]
@@ -44,7 +47,7 @@ struct Index {
     .backgroundColor(0x3a89b0)
   }
   @State message: string = 'Hello World'
-
+  private scroller: Scroller = new Scroller()
   build() {
     Column(){
       Column({}){
@@ -106,7 +109,7 @@ struct Index {
       .width('100%')
       // .height(82)s
       // .margin(10)
-       Row(){
+      Scroll(this.scroller){
 
 
         GridRow({ columns: { sm: 1,md:2 ,lg: 3 }, breakpoints: { value: ['10vp', '300vp', '780vp', '300vp', '600vp'] } }) {
@@ -166,11 +169,11 @@ struct Index {
       .margin(30)
        .backgroundColor(Color.Red)
         // .color2()
-        // .height('65%')
 
-      // .margin({top:5,right:40,left:40})
-      // .padding(50)
-      // .padding({top:1,bottom:50})
+    ScrollBar({scroller:this.scroller,direction:ScrollBarDirection.Vertical,state:BarState.Auto})
+
+
+
 
     }
     .backgroundColor(0x546b83)
